@@ -1,6 +1,6 @@
 # express-ts-ejs-scss-HTTPS-boilerplate
  A TypeScript boilerplate template for full-stack HTTPS production express apps.
- TypeScript is setup and configured, as well as a HTTP/HTTPS server with express-session. EJS as the view engine is included as well SASS for CSS.
+ TypeScript is setup and configured, as well as a HTTP/HTTPS server with express-session. EJS as the view engine is included as well SASS for CSS. Nodemon Development, SASS Support, and TSC compiler are setup out-of-box. 
 
 > [!IMPORTANT]  
 > HTTPS is enabled by default! You will need to use ``.generateCertificates.ps1`` script to create a self-signed certificate/key pair. If you do not want to use HTTPS, set ``useSSL = false`` in ``server.ts``.
