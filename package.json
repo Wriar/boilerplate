@@ -1,0 +1,45 @@
+{
+  "name": "CHANGE-ME-BOILERPLATE",
+  "version": "1.0.0",
+  "description": "To fully build, ensure static files (set server.ts debugStatus=false) are copied to bin and entry point staticfiles point to ./bin/static not ./src/static! This allows for static resource modification without nodemon having to restart the entire project during dev.",
+  "main": "bin/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-standalone": "tsc && npm run copy-files && node bin/server.js",
+    "dev": "concurrently \"tsc -w\" \"npm run copy-files && nodemon bin/server.js\"",
+    "b": "sass --watch src/static/scss/:src/static/css/",
+    "clean": "rimraf bin",
+    "copy-files": "copyfiles -u 1 src/static/**/* src/**/*.html src/views/**/* bin/"
+
+  },
+  "author": "Wriar",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.4",
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.4",
+    "express-session": "^1.17.3",
+    "mariadb": "^3.2.2",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cookie-parser": "^1.4.7",
+    "@types/express": "^4.17.17",
+    "@types/express-session": "^1.17.7",
+    "concurrently": "^8.0.1",
+    "copyfiles": "^2.4.1",
+    "nodemon": "^3.0.1",
+    "rimraf": "^6.0.1",
+    "scss": "^0.2.4"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "src/static/**/*"
+    ]
+  }
+}

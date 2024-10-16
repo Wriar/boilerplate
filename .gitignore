@@ -1,0 +1,8 @@
+node_modules
+bin
+.env
+.idea
+/.idea
+
+certs/cert.crt
+certs/key.key
