@@ -12,6 +12,13 @@
 >
 > ``Tools > Options > Advanced > Certificates: View Certificates``
 
+## Out-Of-Box Quick Setup:
+1. Clone template repo. Run ``npm install``. Update any NPM packages if needed.
+2. Create certificates using ``.generateCertificates.ps1`` script. Copy ``cert.crt`` and ``key.key`` to ``/certs``. Optionally install the cert.crt into your device's trusted root certificate store (see above for FireFox setup)
+3. Copy ``.env.example`` to ``.env``.
+4. Run ``npm run build-standalone``. Verify the HTTPS server starts (HELLO WORLD at 'https://localhost/')
+5. Use ``npm run b`` to run SCSS parser; Use ``npm run dev`` to use server w/ nodemon. THese are the standard development commands.
+
 ## NPM Scripts:
 * ``build-standalone``: Builds the project into ``./bin`` and runs it with TSC.
 * ``dev``: Spinup a dev environment which will rebuild/restart each time a TS script is modified in the ``/src`` folder.
@@ -21,7 +28,7 @@
 It is recommended to start both ``dev`` and ``b`` scripts to develop frontend/backend respectively. All fresh restarts of build & dev will copy over static resources to bin (those not copied over by TSC).
 
 > [!WARNING]
-> To build a standalone **portable** app in `./bin`, make sure the ``server.ts`` sets up the static directory as ``./bin/static`` NOT ``./src/static``. Even though static is copied over on each TSC build, they are not re-copied during nodemon-monitored changes (it is not ideal for nodemon to restart the server each time a static resource is updated, so ``./src/static`` is set to be ignored by nodemon). This is not a concern unless you are only wanting to use the bin folder in a distribution. To correctly build a bin distribution, set `IS_DEBUG=False`` in server.ts and run ``npm run build-standalone``!
+> To build a standalone **portable** app in `./bin`, make sure the ``server.ts`` sets up the static directory as ``./bin/static`` NOT ``./src/static``. Even though static is copied over on each TSC build, they are not re-copied during nodemon-monitored changes (it is not ideal for nodemon to restart the server each time a static resource is updated, so ``./src/static`` is set to be ignored by nodemon). This is not a concern unless you are only wanting to use the bin folder in a distribution. To correctly build a bin distribution, set ``IS_DEBUG=False`` in server.ts and run ``npm run build-standalone``!
 
 ### TypeScript Target/Module: ``es2016`` & ``commonJS``
 
