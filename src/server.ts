@@ -65,6 +65,15 @@ if(debugStatus) {
     }
 })();
 
+//Sample typescript module to create type-safe sessions
+/*
+declare module "express-session" {
+    interface SessionData {
+        loggedIn: boolean;
+    }
+}
+*/
+
 //Include utilities or controllers here.
 
 DEBUG_ASSERT("[OK] Initial Configuration Loaded.", 'green', 'info');
